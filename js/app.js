@@ -29,3 +29,19 @@ function shuffle(){
 }
 
 shuffle();
+
+let table=document.getElementById('table');
+
+count = 0;
+for(let i=0;i<card_type.length;i++){
+  let tr = document.createElement('tr');
+  for(let j=1;j<=13;j++){
+    let td = document.createElement('td');
+    let d_card = cards[count];
+    td.classList.add('card');
+    td.innerHTML = d_card.type + '<br>' + d_card.num;
+    tr.appendChild(td);
+  }
+  console.log(tr);
+  table.appendChild(tr);
+}
