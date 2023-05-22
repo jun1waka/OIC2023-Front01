@@ -30,8 +30,7 @@ function shuffle(){
 
 shuffle();
 
-let table=document.getElementById('table');
-
+const table=document.getElementById('table');
 count = 0;
 for(let i=0;i<card_type.length;i++){
   let tr = document.createElement('tr');
@@ -41,6 +40,7 @@ for(let i=0;i<card_type.length;i++){
     td.classList.add('card');
     td.innerHTML = d_card.type + '<br>' + d_card.num;
     tr.appendChild(td);
+    count++;
   }
   console.log(tr);
   table.appendChild(tr);
