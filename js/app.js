@@ -15,3 +15,17 @@ for(let i=0;i<card_type.length;i++){
      count++;
   }
 }
+
+function shuffle(){
+	let i=cards.length;
+	while(i){
+		let swap_idx = Math.floor(Math.random()*i--);
+		console.log('FROM:' + i +': type:' + cards[i].type + ' num:' + cards[i].num);
+		console.log('TO  :' + swap_idx +': type:' + cards[swap_idx].type + ' num:' + cards[swap_idx].num);
+		let tmp = cards[i];
+		cards[i] = cards[swap_idx];
+		cards[swap_idx]=tmp;
+	}
+}
+
+shuffle();
