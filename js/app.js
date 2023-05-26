@@ -6,7 +6,7 @@ class Card {
 }
 
 const cards=[];
-const card_type = ['s','d','h','c'];
+const card_type = ['&spades;','&diams;','&hearts;','&clubs;'];
 let count = 0;
 for(let i=0;i<card_type.length;i++){
   for(let j=1;j<=13;j++){
@@ -39,6 +39,17 @@ for(let i=0;i<card_type.length;i++){
     let d_card = cards[count];
     td.classList.add('card');
     td.innerHTML = d_card.type + '<br>' + d_card.num;
+    td.style.width = '1.5em';
+    td.style.textAlign = 'center';
+    switch(d_card.type){
+      case '&spades;':
+      case '&clubs;':
+        td.style.color = 'black';
+        break;
+      case '&diams;':
+      case '&hearts;':
+        td.style.color = 'red';
+    }
     tr.appendChild(td);
     count++;
   }
