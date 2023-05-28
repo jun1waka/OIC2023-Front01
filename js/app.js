@@ -56,3 +56,16 @@ for(let i=0;i<card_type.length;i++){
   console.log(tr);
   table.appendChild(tr);
 }
+
+setTimeout(function(){
+  count = 0;
+  for(let i=0;i<card_type.length;i++){
+    for(let j=1;j<=13;j++){
+      let el = document.getElementById(count);
+//      el.addEventListener('click',flip(count));
+      el.innerHTML = '**<br>**';
+      el.style.color = 'green';
+      count++;
+    }
+  }
+},5000);
