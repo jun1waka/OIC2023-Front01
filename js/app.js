@@ -10,6 +10,7 @@ class Card {
 const cards=[];
 const card_type = ['&spades;','&diams;','&hearts;','&clubs;'];
 let count = 0;
+let help_count = 3;
 let firstid = -1;
 
 for(let i=0;i<card_type.length;i++){
@@ -34,6 +35,7 @@ function shuffle(){
 
 shuffle();
 
+const message = document.getElementById('message');
 const table=document.getElementById('table');
 count = 0;
 for(let i=0;i<card_type.length;i++){
@@ -69,15 +71,19 @@ for(let i=0;i<card_type.length;i++){
         flip(count);
         if(checkPair(firstid,count)){
           console.log('pair!');
+          message.innerHTML = 'ペアができた';
           cards[firstid].ispair = true;
           cards[count].ispair = true;
         }else{
           console.log('no Pair');
+          message.innerHTML = 'ペアじゃない';
           let wk_firstid = firstid;
           setTimeout(function(){
             console.log(wk_firstid);
             flip(wk_firstid);
             flip(count);
+            message.innerHTML = '　';
+
           },3000);
         }
         firstid = -1;
@@ -136,3 +142,31 @@ function checkPair(firstid,count){
     return false;
   }
 }
+
+const help=document.getElementById('help');
+help.addEventListener('click',function(){
+  count = 0;
+//  if(help_count <= 0){
+//    return;
+//  }
+  for(let i=0;i<card_type.length;i++){
+    for(let j=1;j<=13;j++){
+      flip(count);
+      count++;
+    }
+  }
+  setTimeout(function(){
+    count = 0;
+    for(let i=0;i<card_type.length;i++){
+      for(let j=1;j<=13;j++){
+        flip(count);
+        count++;
+      }
+    }
+  },3000);
+  help_count--;
+  help.innerHTML='助けて：のこり'+ help_count + '回';
+  if(help_count <= 0){
+    help.style.display = 'none';
+  }
+});
