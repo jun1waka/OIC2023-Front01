@@ -70,7 +70,7 @@ for(let i=0;i<card_type.length;i++){
         if(checkPair(firstid,count)){
           console.log('pair!');
         }else{
-          cosole.log('no Painr');
+          console.log('no Painr');
         }
       }
     });
