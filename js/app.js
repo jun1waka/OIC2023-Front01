@@ -69,9 +69,18 @@ for(let i=0;i<card_type.length;i++){
         flip(count);
         if(checkPair(firstid,count)){
           console.log('pair!');
+          cards[firstid].ispair = true;
+          cards[count].ispair = true;
         }else{
-          console.log('no Painr');
+          console.log('no Pair');
+          let wk_firstid = firstid;
+          setTimeout(function(){
+            console.log(wk_firstid);
+            flip(wk_firstid);
+            flip(count);
+          },3000);
         }
+        firstid = -1;
       }
     });
     tr.appendChild(td);
@@ -116,6 +125,14 @@ function flip(count){
   }
   
 }
-function checkPair(first_card_num,count){
-
+function checkPair(firstid,count){
+  let a_card = cards[firstid];
+  let b_card = cards[count];
+  console.log('a_card:' + a_card.num);
+  console.log('b_card:' + b_card.num);
+  if(a_card.num == b_card.num){
+    return true;
+  }else{
+    return false;
+  }
 }
